@@ -1,4 +1,0 @@
-pvenv/
-.env
-
-# to create a python env, run:  python3 -m venv pyenv
