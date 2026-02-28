@@ -7,20 +7,15 @@ load_dotenv()
 FRED_API_KEY = os.getenv("FRED_API_KEY")
 
 ## series_id to explore
-## 1. DEXBZUS - Brazilian Real
-## 2. DFF - Federal Funds Effective Rate (daily)
-# 2.1 DGS10 - 10-Year Treasury Rate (daily)
-# 2.2 DGS30 - 30-Year Treasury Rate (daily)
+## CPIAUCSL - Consumer Price Index for All Urban Consumers: All Items (US)
 
 SERIES = {
-    "DFF": "fed_funds_rate.csv",
-    "DGS10": "treasury_10y_rate.csv",
-    "DGS30": "treasury_30y_rate.csv"
+    "CPIAUCSL": "us_cpi_2000_2024.csv"
 }
 
 BASE_URL = "https://api.stlouisfed.org/fred/series/observations"
 
-def fetch_fred_series(series_id, filename, start="2019-01-01", end="2025-12-31"):
+def fetch_fred_series(series_id, filename, start="2000-01-01", end="2024-12-31"):
     url = (
         f"{BASE_URL}"
         f"?series_id={series_id}"
