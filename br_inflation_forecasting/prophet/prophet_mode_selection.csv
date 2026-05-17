@@ -1,0 +1,3 @@
+mode_label,mode_value,mae_in_sample,rmse_in_sample
+aditivo,additive,0.17992441891509123,0.24193354957570418
+multiplicativo,multiplicative,0.18556184458001573,0.24549227427920053

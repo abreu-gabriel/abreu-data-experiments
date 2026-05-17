@@ -1,0 +1,2 @@
+changepoint_prior_scale,seasonality_prior_scale,seasonality_mode
+0.1,0.01,additive
