@@ -2,7 +2,6 @@ import pandas as pd
 
 def clean_insurance(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop_duplicates()
-    # dropping any row where any of the listed columns is null (NaN)
     df = df.dropna(subset=["age", "sex", "bmi", "children", "smoker", "region", "charges"])
 
     df["age"] = df["age"].astype(int)
@@ -13,6 +12,10 @@ def clean_insurance(df: pd.DataFrame) -> pd.DataFrame:
     df["is_smoker"] = df["smoker"].str.lower().eq("yes")
     df["sex"] = df["sex"].str.lower()
     df["region"] = df["region"].str.lower()
+
+    # ASSUMPTION: synthetic PK — source has no natural unique identifier
+    df = df.reset_index(drop=True)
+    df.insert(0, "row_id", df.index)
 
     return df
 
